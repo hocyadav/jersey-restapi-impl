@@ -6,6 +6,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -24,21 +25,20 @@ public class AlienResource {
 	
 	
 	@GET
-	@Path("/alien/1001")
+	@Path("/alien/{id}")//1st
 	@Produces( {MediaType.APPLICATION_XML , MediaType.APPLICATION_JSON} )
-	public Alien oneDataFromDB() {
+	public Alien oneDataFromDB(@PathParam("id") int id) {//2nd
 		
 		Alien t = new Alien();
-		t.id = 99;
-		t.name = "aisha";
+//		t.id = 99;
+//		t.name = "aisha";
 		
-		if(repo.getByID(1001) != null)
-			t = repo.getByID(1001);
+		if(repo.getByID(id) != null)
+			t = repo.getByID(id);
 		
 		return t;
 		
 	}
-
 	
 	@POST //Post is for Creating a NEW resource, PUT - updating a resource , DELETE - deleting a resou
 	@Path("/add")
