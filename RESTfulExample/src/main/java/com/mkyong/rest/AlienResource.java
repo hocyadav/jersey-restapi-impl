@@ -66,7 +66,7 @@ public class AlienResource {
 	
 	@POST //Post is for Creating a NEW resource, PUT - updating a resource , DELETE - deleting a resou
 	@Path("/add-db")
-	//@Consumes( {MediaType.APPLICATION_XML , MediaType.APPLICATION_JSON} )//Consume means accept input as json + xml
+	@Consumes( {MediaType.APPLICATION_XML , MediaType.APPLICATION_JSON} )//Consume means accept input as json + xml
 	public Alien funForSingleListDB(Alien a1) {
 		
 		System.out.println("Post data from postman : "+a1);
